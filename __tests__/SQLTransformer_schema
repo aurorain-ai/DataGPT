@@ -1,0 +1,16 @@
+-- predict new customer counts after 2023
+-- (incorrect)
+
+SELECT COUNT(*) AS new_customer_counts
+FROM "SNOWFLAKE_SAMPLE_DATA"."TPCH_SF1"."CUSTOMER"
+WHERE C_CUSTKEY NOT IN (
+    SELECT O_CUSTKEY
+    FROM "SNOWFLAKE_SAMPLE_DATA"."TPCH_SF1"."ORDERS"
+    WHERE O_ORDERDATE < '2023-01-01'
+);
+
+-- find customer count each year
+SELECT EXTRACT(YEAR FROM O_ORDERDATE) AS OrderYear, COUNT(DISTINCT O_CUSTKEY) AS CustomerCount
+FROM "SNOWFLAKE_SAMPLE_DATA"."TPCH_SF1"."ORDERS"
+GROUP BY OrderYear
+ORDER BY OrderYear;
