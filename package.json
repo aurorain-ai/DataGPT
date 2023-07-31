@@ -61,7 +61,7 @@
     "rehype-highlight": "^6.0.0",
     "remark-gfm": "^3.0.1",
     "request": "^2.88.2",
-    "snowflake-sdk": "^1.6.21",
+    "snowflake-sdk": "^1.7.0",
     "stripe": "^12.0.0",
     "superjson": "1.9.1",
     "uuid": "^9.0.0",
